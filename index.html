@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Accreleus</title>
 <meta name="description" content="Self-hostable cloud gaming, and the tools around it.">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Michroma&display=swap" rel="stylesheet">
@@ -37,7 +37,9 @@
   }
   main{width:100%;max-width:38rem}
   header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
-  header img{width:56px;height:56px;flex:none}
+  /* The Accreleus master symbol is 1200x720. Size by height and let width
+     follow, or the crescent and its horizontal lens get squashed. */
+  header img{height:64px;width:auto;flex:none;margin-left:-6px}
   h1{font-family:var(--q-font-brand);font-size:1.6rem;letter-spacing:.02em;margin:0;font-weight:400}
   .lede{color:var(--q-text-2);margin:0 0 2.5rem;font-size:1.05rem}
   .projects{display:grid;gap:.75rem;margin:0;padding:0;list-style:none}
