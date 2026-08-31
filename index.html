@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accreleus</title>
+<meta name="description" content="Self-hostable cloud gaming, and the tools around it.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+<style>
+  /* Tokens lifted verbatim from the Quasar v3 contract
+     (design_handoff_v3/screens/assets/console-v3.css) so the org page and the
+     product read as one system. Do not hand-pick new colours here. */
+  :root{
+    --q-ink-0:oklch(0.105 0.01 267);
+    --q-ink-2:oklch(0.163 0.018 268);
+    --q-ink-3:oklch(0.208 0.02 268);
+    --q-line:oklch(0.9618 0.0086 247.91 / 0.09);
+    --q-line-2:oklch(0.9618 0.0086 247.91 / 0.12);
+    --q-text:oklch(0.9618 0.0086 247.91);
+    --q-text-2:oklch(0.76 0.022 258);
+    --q-text-3:oklch(0.6605 0.0265 259.81);
+    --q-violet:oklch(0.5998 0.2179 273.21);
+    --q-accent-text:oklch(0.78 0.13 273.21);
+    --q-font-brand:'Michroma',ui-sans-serif,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:var(--q-ink-0);color:var(--q-text);
+    font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    display:grid;place-items:center;padding:2rem;
+    background-image:radial-gradient(70rem 40rem at 50% -18%,oklch(0.5998 0.2179 273.21 / 0.10),transparent 60%);
+  }
+  main{width:100%;max-width:38rem}
+  header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+  header img{width:56px;height:56px;flex:none}
+  h1{font-family:var(--q-font-brand);font-size:1.6rem;letter-spacing:.02em;margin:0;font-weight:400}
+  .lede{color:var(--q-text-2);margin:0 0 2.5rem;font-size:1.05rem}
+  .projects{display:grid;gap:.75rem;margin:0;padding:0;list-style:none}
+  .card{
+    display:block;padding:1.1rem 1.25rem;border:1px solid var(--q-line);border-radius:12px;
+    background:var(--q-ink-2);text-decoration:none;color:inherit;
+    transition:border-color .15s ease,background .15s ease;
+  }
+  .card:hover,.card:focus-visible{border-color:var(--q-line-2);background:var(--q-ink-3)}
+  .card:focus-visible{outline:2px solid var(--q-violet);outline-offset:2px}
+  .card h2{margin:0 0 .2rem;font-size:1rem;font-weight:600}
+  .card p{margin:0;color:var(--q-text-3);font-size:.925rem}
+  .links{margin-top:2.5rem;display:flex;gap:1.25rem;font-size:.9rem}
+  .links a{color:var(--q-accent-text);text-decoration:none}
+  .links a:hover{text-decoration:underline}
+  @media (prefers-reduced-motion:reduce){.card{transition:none}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="mark.svg" alt="" aria-hidden="true">
+    <h1>Accreleus</h1>
+  </header>
+
+  <p class="lede">Self-hostable cloud gaming, and the tools around it.</p>
+
+  <ul class="projects">
+    <li>
+      <a class="card" href="https://accreleus.github.io/quasar/">
+        <h2>Quasar &rarr;</h2>
+        <p>A cloud-gaming platform you run yourself. Stream a GPU host to a browser over WebRTC, on your own hardware. Documentation and install guide.</p>
+      </a>
+    </li>
+  </ul>
+
+  <p class="links">
+    <a href="https://github.com/accreleus">GitHub</a>
+    <a href="https://github.com/accreleus/quasar">Quasar source</a>
+  </p>
+</main>
+</body>
+</html>
