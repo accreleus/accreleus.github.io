@@ -8,7 +8,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Michroma&display=swap" rel="stylesheet">
 <style>
   /* Tokens lifted verbatim from the Quasar v3 contract
      (design_handoff_v3/screens/assets/console-v3.css) so the org page and the
@@ -25,12 +25,13 @@
     --q-violet:oklch(0.5998 0.2179 273.21);
     --q-accent-text:oklch(0.78 0.13 273.21);
     --q-font-brand:'Michroma',ui-sans-serif,sans-serif;
+    --q-font-display:'IBM Plex Sans',Inter,ui-sans-serif,system-ui,sans-serif;
   }
   *{box-sizing:border-box}
   html,body{margin:0;height:100%}
   body{
     background:var(--q-ink-0);color:var(--q-text);
-    font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font:16px/1.65 var(--q-font-display);
     display:grid;place-items:center;padding:2rem;
     background-image:radial-gradient(70rem 40rem at 50% -18%,oklch(0.5998 0.2179 273.21 / 0.10),transparent 60%);
   }
