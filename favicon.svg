@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="383 70 580 580" width="512" height="512" role="img" aria-labelledby="t"><title id="t">Accreleus</title>
+<defs>
+    <linearGradient id="orbit" x1="410" y1="160" x2="930" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="oklch(0.6033 0.2296 287.92)"/>
+      <stop offset="0.54" stop-color="oklch(0.6074 0.2126 262.24)"/>
+      <stop offset="1" stop-color="oklch(0.8422 0.1342 204.54)"/>
+    </linearGradient>
+    <linearGradient id="lens" x1="65" y1="360" x2="1135" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="oklch(0.6074 0.2126 262.24 / 0)"/>
+      <stop offset="0.18" stop-color="oklch(0.6074 0.2126 262.24)"/>
+      <stop offset="0.39" stop-color="oklch(0.9618 0.0086 247.91)"/>
+      <stop offset="0.58" stop-color="oklch(0.9618 0.0086 247.91)"/>
+      <stop offset="0.82" stop-color="oklch(0.8422 0.1342 204.54)"/>
+      <stop offset="1" stop-color="oklch(0.8422 0.1342 204.54 / 0)"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="410" y1="235" x2="680" y2="485" gradientUnits="userSpaceOnUse">
+      <stop stop-color="oklch(0.9618 0.0086 247.91)"/>
+      <stop offset="0.74" stop-color="oklch(0.9618 0.0086 247.91)"/>
+      <stop offset="1" stop-color="oklch(0.8422 0.1342 204.54)"/>
+    </linearGradient>
+    <mask id="crescent">
+      <!-- backing plate removed: the page supplies its own canvas -->
+      <circle cx="675" cy="360" r="270" fill="white"/>
+      <circle cx="598" cy="360" r="224" fill="black"/>
+    </mask>
+  </defs>
+  <circle cx="675" cy="360" r="270" fill="url(#orbit)" mask="url(#crescent)"/>
+  <circle cx="545" cy="360" r="139" fill="#05070d" stroke="url(#rim)" stroke-width="9"/>
+</svg>
