@@ -149,6 +149,9 @@ const { title, description, date, updated, projects, draft } = post.data;
 		border-radius: 11px;
 		background: var(--q-inset) !important;
 		overflow-x: auto;
+		/* Wrap long lines instead of scrolling; break long tokens (digests, URLs). */
+		white-space: pre-wrap;
+		overflow-wrap: anywhere;
 		font-size: 0.85rem;
 		line-height: 1.6;
 	}
