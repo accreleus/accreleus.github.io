@@ -1,0 +1,91 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Base title={title} description={description}>
+	<div class="shell">
+		<nav class="bar" aria-label="Site">
+			<a class="brand" href="/">
+				<img src="/mark.svg" alt="" aria-hidden="true" />
+				<span>Accreleus</span>
+			</a>
+			<div class="links">
+				<a href="/blog/" aria-current={Astro.url.pathname === '/blog/' ? 'page' : undefined}>Blog</a>
+				<a href="https://accreleus.github.io/quasar/">Quasar docs</a>
+				<a href="https://github.com/accreleus">GitHub</a>
+			</div>
+		</nav>
+		<main>
+			<slot />
+		</main>
+		<footer>
+			<a href="/blog/rss.xml">RSS feed</a>
+		</footer>
+	</div>
+</Base>
+
+<style>
+	.shell {
+		max-width: 42rem;
+		margin: 0 auto;
+		padding: 2rem 1.5rem 4rem;
+	}
+	.bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-bottom: 3.5rem;
+	}
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		color: var(--q-text);
+		text-decoration: none;
+	}
+	/* 1200x720 master symbol: size by height so it is not squashed. */
+	.brand img {
+		height: 32px;
+		width: auto;
+		margin-left: -3px;
+	}
+	/* The wordmark rule the Quasar docs header uses. */
+	.brand span {
+		font-family: var(--q-font-brand);
+		font-size: 0.8125rem;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+	}
+	.links {
+		display: flex;
+		gap: 1.25rem;
+		font-size: 0.9rem;
+	}
+	.links a,
+	footer a {
+		color: var(--q-accent-text);
+		text-decoration: none;
+	}
+	.links a:hover,
+	footer a:hover {
+		text-decoration: underline;
+	}
+	.links a[aria-current='page'] {
+		color: var(--q-text);
+	}
+	footer {
+		margin-top: 4rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--q-line);
+		font-size: 0.875rem;
+	}
+</style>

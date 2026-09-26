@@ -1,0 +1,149 @@
+---
+import { render } from 'astro:content';
+import BlogShell from '../../layouts/BlogShell.astro';
+import { formatDate, getPosts, projectNames, type Post } from '../../lib/posts';
+
+export async function getStaticPaths() {
+	const posts = await getPosts();
+	return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props as { post: Post };
+const { Content } = await render(post);
+const { title, description, date, updated, projects, draft } = post.data;
+---
+
+<BlogShell title={`${title} · Accreleus`} description={description}>
+	<article>
+		<header>
+			<p class="meta">
+				<time datetime={date.toISOString()}>{formatDate(date)}</time>
+				{projects.map((p) => <span class="tag">{projectNames[p]}</span>)}
+				{draft && <span class="tag draft">Draft</span>}
+			</p>
+			<h1>{title}</h1>
+			{updated && <p class="updated">Updated {formatDate(updated)}</p>}
+		</header>
+		<div class="prose">
+			<Content />
+		</div>
+	</article>
+	<p class="back"><a href="/blog/">&larr; All posts</a></p>
+</BlogShell>
+
+<style>
+	header {
+		margin-bottom: 2rem;
+	}
+	.meta {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0 0 0.6rem;
+		color: var(--q-text-3);
+		font-size: 0.875rem;
+	}
+	.tag {
+		padding: 0.05rem 0.5rem;
+		border: 1px solid var(--q-line-2);
+		border-radius: var(--q-r-sm);
+		color: var(--q-text-2);
+		font-size: 0.8125rem;
+	}
+	.draft {
+		color: var(--q-warning-text);
+	}
+	h1 {
+		font-size: 1.9rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		line-height: 1.2;
+		margin: 0;
+		text-wrap: balance;
+	}
+	.updated {
+		margin: 0.5rem 0 0;
+		color: var(--q-text-3);
+		font-size: 0.875rem;
+	}
+	.back {
+		margin-top: 3rem;
+		font-size: 0.9rem;
+	}
+	.back a {
+		color: var(--q-accent-text);
+		text-decoration: none;
+	}
+	.back a:hover {
+		text-decoration: underline;
+	}
+
+	/* Rendered Markdown. Headings follow the Quasar docs: Plex Sans, tight
+	   tracking, 700 for h2 and 600 below. */
+	.prose {
+		color: var(--q-text-2);
+	}
+	.prose :global(:is(h2, h3, h4)) {
+		color: var(--q-text);
+		letter-spacing: -0.02em;
+		line-height: 1.3;
+		margin: 2.25rem 0 0.75rem;
+	}
+	.prose :global(h2) {
+		font-size: 1.45rem;
+		font-weight: 700;
+	}
+	.prose :global(:is(h3, h4)) {
+		font-size: 1.15rem;
+		font-weight: 600;
+	}
+	.prose :global(p),
+	.prose :global(ul),
+	.prose :global(ol) {
+		margin: 0 0 1.1rem;
+	}
+	.prose :global(strong) {
+		color: var(--q-text);
+		font-weight: 600;
+	}
+	.prose :global(a) {
+		color: var(--q-accent-text);
+	}
+	.prose :global(hr) {
+		border: 0;
+		border-top: 1px solid var(--q-line);
+		margin: 2.5rem 0;
+	}
+	.prose :global(blockquote) {
+		margin: 1.5rem 0;
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--q-line);
+		border-inline-start: 2px solid var(--q-warning-text);
+		border-radius: var(--q-r-md);
+		background: var(--q-ink-2);
+	}
+	.prose :global(blockquote p:last-child) {
+		margin-bottom: 0;
+	}
+	.prose :global(:not(pre) > code) {
+		font-family: var(--q-font-mono);
+		font-size: 0.875em;
+		padding: 0.15em 0.4em;
+		border-radius: 5px;
+		background: var(--q-ink-4);
+		color: var(--q-text);
+	}
+	.prose :global(pre) {
+		margin: 0 0 1.5rem;
+		padding: 1rem 1.15rem;
+		border: 1px solid var(--q-line);
+		border-radius: 11px;
+		background: var(--q-inset) !important;
+		overflow-x: auto;
+		font-size: 0.85rem;
+		line-height: 1.6;
+	}
+	.prose :global(pre code) {
+		font-family: var(--q-font-mono);
+	}
+</style>
