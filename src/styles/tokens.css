@@ -20,6 +20,13 @@
 
 	--q-line: oklch(0.9618 0.0086 247.91 / 0.09);
 	--q-line-2: oklch(0.9618 0.0086 247.91 / 0.12);
+	--q-line-3: oklch(0.6605 0.0265 259.81 / 0.46);
+
+	/* v3 control surface (.btn) and its hover, dark theme, default density. */
+	--q-glass-control: oklch(0.272 0.022 260 / 0.66);
+	--q-glass-control-hover: oklch(0.315 0.026 260 / 0.76);
+	--q-control-h: 34px;
+	--q-t-sm: 0.8125rem;
 
 	--q-text: oklch(0.9618 0.0086 247.91);
 	--q-text-2: oklch(0.76 0.022 258);
