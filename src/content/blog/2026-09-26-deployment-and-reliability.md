@@ -33,9 +33,11 @@ Looking back, a few things were pretty clear.
 
 That led to two decisions. First, a small, lightweight container that looks at the machine it's on (what GPU you've got, what it can do, how the host is set up) and stands the rest of Quasar up correctly, so you don't have to. Second, stop driving everything through the Docker CLI.
 
-<!-- Architecture diagram (Archify) goes here. Put the image in
-     public/blog/2026-09-26-deployment-and-reliability/ and reference it as
-     /blog/2026-09-26-deployment-and-reliability/<file>. -->
+Here's where that's landing. On each machine, the seed makes sure a recovery actor exists, and the actor installs and replaces everything else. The node agent reports to the control plane and owns the game containers. Releases come from GitHub, and images are pulled from GHCR by digest.
+
+[![Quasar's new architecture on a combined host. The seed ensures the recovery actor exists. The actor takes requests from the control plane over a control socket and from the node agent over an agent socket, and pulls images from ghcr.io/accreleus/quasar by digest. The node agent connects to the control plane over a secure WebSocket, streams to the browser over WebRTC, and launches the session containers. The control plane stores desired host state in Postgres and reads the release manifest from GitHub Releases.](/blog/2026-09-26-deployment-and-reliability/quasar-architecture.png)](/blog/2026-09-26-deployment-and-reliability/quasar-architecture.png)
+
+*The new architecture on a combined host. Select the diagram to open it full size.*
 
 ## Step one: talk to the engine, not the CLI
 

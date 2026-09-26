@@ -122,6 +122,15 @@ const { title, description, date, updated, projects, draft } = post.data;
 		border-radius: var(--q-r-md);
 		background: var(--q-ink-2);
 	}
+	/* Fit the column; the same line and panel radius as a blockquote. */
+	.prose :global(img) {
+		display: block;
+		max-width: 100%;
+		height: auto;
+		margin: 1.5rem 0;
+		border: 1px solid var(--q-line);
+		border-radius: var(--q-r-md);
+	}
 	.prose :global(blockquote p:last-child) {
 		margin-bottom: 0;
 	}
