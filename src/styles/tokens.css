@@ -1,0 +1,62 @@
+/* Tokens lifted verbatim from the Quasar v3 contract
+   (design_handoff_v3/screens/assets/console-v3.css, mirrored in the Quasar
+   docs site's site/src/styles/theme.css) so the org page, the blog and the
+   product read as one system. Do not hand-pick new colours here: if a value
+   is missing, take it from that contract. */
+
+/* Self-hosted fonts, the same @fontsource packages the product uses. No CDN. */
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/ibm-plex-sans/700.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/michroma/400.css';
+
+:root {
+	--q-ink-0: oklch(0.105 0.01 267);
+	--q-ink-2: oklch(0.163 0.018 268);
+	--q-ink-3: oklch(0.208 0.02 268);
+	--q-ink-4: oklch(0.252 0.022 267);
+	--q-inset: oklch(0.088 0.012 267);
+
+	--q-line: oklch(0.9618 0.0086 247.91 / 0.09);
+	--q-line-2: oklch(0.9618 0.0086 247.91 / 0.12);
+
+	--q-text: oklch(0.9618 0.0086 247.91);
+	--q-text-2: oklch(0.76 0.022 258);
+	--q-text-3: oklch(0.6605 0.0265 259.81);
+
+	--q-violet: oklch(0.5998 0.2179 273.21);
+	--q-accent-text: oklch(0.78 0.13 273.21);
+	--q-warning-text: oklch(0.87 0.12 85);
+
+	--q-font-brand: 'Michroma', ui-sans-serif, sans-serif;
+	--q-font-display: 'IBM Plex Sans', Inter, ui-sans-serif, system-ui, sans-serif;
+	--q-font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+
+	/* v3 radii: 4 for controls, 8 for panels, 12 for features. */
+	--q-r-sm: 4px;
+	--q-r-md: 8px;
+	--q-r-lg: 12px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+}
+
+body {
+	background: var(--q-ink-0);
+	color: var(--q-text);
+	font: 16px/1.65 var(--q-font-display);
+	background-image: radial-gradient(70rem 40rem at 50% -18%, oklch(0.5998 0.2179 273.21 / 0.1), transparent 60%);
+	background-repeat: no-repeat;
+}
+
+a:focus-visible {
+	outline: 2px solid var(--q-violet);
+	outline-offset: 2px;
+}
